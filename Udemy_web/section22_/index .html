@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudando html</title> 
+    <style>
+        #conteudo{
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Exercícios html</h1></header>
+    <nav>
+        <a href="Exercicios/aprendizado1.html">Tag de textos 1 !</a>
+        <a href="Exercicios/aprendizado2.html">Tag de textos 2 !</a> 
+        <a href="Exercicios/aprendizado3.html">Listas 1 !</a>
+        <a href="Exercicios/aprendizado4.html">Listas Aninhadas !</a> 
+        <a href="Exercicios/aprendizado5.html">Links !</a> 
+        <a href="Exercicios/aprendizado6.html">Tabela!</a>  
+        <a href="Exercicios/aprendizado7.html">Imagens!</a>  
+        <a href="Exercicios/aprendizado8.html">Videos</a>  
+        <a href="Exercicios/form/form.html">Formulário</a> 
+        
+    </nav> 
+    <section id="conteudo"></section> 
+    <footer> 
+        <br>
+        Curso de Web moderno
+    </footer> 
+    <script>
+        document.querySelectorAll("a").forEach(link => {
+            const conteudo = document.getElementById('conteudo')          <!--Funcão para trazer conteúdo de uma página pra principal-->
+            
+            link.onclick= function(e){ 
+                e.preventDefault()
+                fetch(link.href) 
+                    .then(resp=>resp.text()) 
+                    .then(html => conteudo.innerHTML=html)
+            }
+        });
+    </script>
+</body>
+</html>
